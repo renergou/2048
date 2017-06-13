@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<style>
+    body{
+        margin-left:auto;
+        margin-right:auto;
+        margin-TOP:100PX;
+        width:20em;
+    }
+</style>
+
+<body>
+<!--下面是用户名输入框-->
+<div class="input-group">
+    <span class="input-group-addon" id="user">用户名：</span>
+    <input id="userName" type="text" class="form-control" placeholder="请输入8-13个字符" aria-describedby="basic-addon1" onblur="checkName()" >
+</div>
+<br>
+<!--下面是密码输入框-->
+<div class="input-group">
+    <span class="input-group-addon" id="pass">密码：</span>
+    <input id="passWord" type="text" class="form-control" placeholder="请输入密码" aria-describedby="basic-addon1" onblur="checkpsw()">
+</div>
+<br>
+<!--下面是密码输入框-->
+<div class="input-group">
+    <span class="input-group-addon" id="pass2">确认密码：</span>
+    <input id="passWord2" type="text" class="form-control" placeholder="请再次输入密码" aria-describedby="basic-addon1"  onblur="checkpsw()">
+</div>
+<br>
+<!--下面是联系方式输入框-->
+<div class="input-group">
+    <span class="input-group-addon" id="phone">联系方式：</span>
+    <input id="Phones" type="text" class="form-control" placeholder="请输入合理的联系方式" aria-describedby="basic-addon1" onblur="checkphone()">
+</div>
+<br>
+<!--下面是登陆按钮,包括颜色控制-->
+<button id="submit" type="button" style="width:280px;" class="btn btn-default"  onclick="location.href='login.html'" >submit</button>
+
+
+</body>
+<script type="text/javascript">
+    function checkName(){
+        var name = document.getElementById("userName").value;
+        if(name.length<8  || name.length>13){
+            alert("名字长度有误！")
+        }
+    }
+    function checkphone(){
+        var phone = document.getElementById("Phones").value;
+        if(phone.length!=11){
+            alert("手机号长度有误！")
+        }
+    }
+
+    function checkpsw(){
+        var password = document.getElementById("passWord").value;
+        var password2 = document.getElementById("passWord2").value;
+        if(password!=""&&password2!=""){
+            if(password!=password2){
+                alert("请输入相同的密码")
+            }
+        }
+    }
+
+</script>
+</html>
