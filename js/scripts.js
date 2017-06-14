@@ -40,27 +40,6 @@ $(function() {
 	})
 
 
-	// fix Cycle2 slider bullet to change at same time when animation begin (on click and auto play)
-	// $('.handles span').on('click', function(e) {
-	// 	$(e.target).siblings().removeClass('cycle-pager-active selected');
-	// 	$(e.target).addClass('selected');
-	// })
-	// $('#case-study3 .detail-slider .bg .slides, #case-study2 .detail-slider .slides').on( 'cycle-before', function() {
-	// 	var cur = $(this).find('.handles span.cycle-pager-active').index();
-	// 	var next = $(this).find('.handles span.cycle-pager-active').next();
-	// 	if (cur == 2) {
-	// 		next = $(this).find('.handles span:first-child');
-	// 	};
-	// 	$(this).find('.handles span.cycle-pager-active').removeClass('cycle-pager-active selected');
-	// 	next.addClass('selected');
-	// })
-	// Early bird wireframe tabs
-	// var tb1 = new Tabber('.tabbed-box', {
-	// 	changeTime: 300,
-	// 	showTime: 500,
-	// 	hashNavigation: false
-	// });
-
 var tb2 = new Tabber('#tab1', {
 	changeTime: 300,
 	showTime: 500,
@@ -345,28 +324,6 @@ function lastTitle() {
 			// console.log('title-a vliza');
 		}
 
-
-		// y = $(window).scrollTop();
-		// if (top < y && y < middle) {
-		// 	// e.preventDefault;
-		// 	scroll = middle - mid;
-		// 	$('html, body').animate({ scrollTop:  scroll + 'px' })
-		// 	// console.log('vleze');
-		// }
-		// } else {
-		// 	// console.log('izleze');
-		// 	return true;
-		// };
-		// if ( top < y < titleT ) {
-		// 	e.preventDefault;
-		// 	// console.log(y);
-		// 	scroll = y + scroll;
-		// 	$('html, body').animate({ scrollTop: scroll })
-		// } else {
-		// 	$('body').on('scroll', function() {
-		// 		return true;
-		// 	})
-		// };
 	})
 }
 

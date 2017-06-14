@@ -30,13 +30,7 @@ var Browser = {
 	}
 }
 
-/*
-*
-* IE Warning
-* 
-* Show warning window for IE 6-8 for old and not supported browser
-* 
-*/
+
 $(function() {
 	if ( Browser.isIE(6) || Browser.isIE(7) || Browser.isIE(8) ) {
 		var 
@@ -54,26 +48,6 @@ $(function() {
 
 
 
-/*
-*
-* Swipe Detector
-*
-*
-	* 
-	* 	JS:
-	* 
-
-		var swipe = new SwipeDetector('.slider', {
-			thresholdX: 20,
-			thresholdY: 20,
-			swipeLeft: function() {},
-			swipeRight: function() {},
-			swipeUp: function() {},
-			swipeDown: function() {},
-			preventDefaultEvents: true
-		});
-*
-*/
 function SwipeDetector( selector, options ) {
 
 	if ( typeof selector === 'undefined' || ! $(selector).length )
@@ -145,18 +119,7 @@ function SwipeDetector( selector, options ) {
 
 
 
-/*
-*
-* Button Decorator
-*
-*
-	* 
-	* 	JS:
-	* 
 
-		var btn = new ButtonDecorator('input[type=submit]');
-*
-*/
 function ButtonDecorator( selector ) {
 
 	if ( ! selector )
@@ -175,33 +138,6 @@ function ButtonDecorator( selector ) {
 };
 
 
-
-
-
-/*
-*
-* Checkbox Decorator
-*
-*
-	* 
-	* 	HTML:
-	*
-
-		<input type="radio" name="aaa" id="1"> <label for="1">One</label>
-		<input type="radio" name="aaa" id="2"> <label for="2">Two</label>
-		<input type="radio" name="aaa" id="3"> <label for="3">Three</label>
-
-		<input type="checkbox" name="aaa" id="1"> <label for="1">One</label>
-		<input type="checkbox" name="aaa" id="2"> <label for="2">Two</label>
-		<input type="checkbox" name="aaa" id="3"> <label for="3">Three</label>
-
-	* 
-	* 	JS:
-	* 
-
-		var chx = new CheckboxDecorator('input[type=checkbox], input[type=radio]');
-*
-*/
 function CheckboxDecorator( selector ) {
 
 	if ( ! selector )
@@ -250,20 +186,6 @@ CheckboxDecorator.prototype.checkLabels = function() {
 
 
 
-
-
-/*
-*
-* Select Decorator
-*
-*
-	* 
-	* 	JS:
-	* 
-
-		var slc = new SelectDecorator('.selectDecorator');
-*
-*/
 function SelectDecorator( selector ) {
 
 	var _this = this;
@@ -482,64 +404,6 @@ SelectDecorator.prototype.o = function( val ) {
 
 
 
-/*
-*
-* Popup
-* 
-*
-	* 
-	* 	CSS:
-	*
-
-		.popup_bg {
-			position: fixed;
-			z-index: 10;
-			width: 100%;
-			height: 100%;
-			background: #000;
-			.opacity (0);
-			.transition(0.3s, ease-in-out);
-
-			&.animate {
-				.opacity (0.3);
-			}
-		}
-		.popup {
-			position: fixed;
-			top: 0;
-			left: 50%;
-			z-index: 2000;
-			width: 796px;
-			min-height: 500px;
-			margin-left: -398px;
-			padding: 30px 50px;
-			background: #fff;
-			.radius (10px);
-			.opacity (0);
-			.transition(0.5s, ease-in-out);
-
-			&.animate {
-				.opacity (1);
-			}
-		}
-
-	* 
-	* 	JS:
-	* 
-
-		var pp = new Popup({
-			popupBgClass: 'popup_bg',
-			popupClass: 'popup',
-			hasClose: true,
-			showSpeed: 200,
-			hideSpeed: 200,
-			removeAfter: 800,
-			onBeforeShow: function() {},
-			onShow: function() {}
-		});
-		pp.show('test');
-* 
-*/
 function Popup( options ) {
 
 	var settings = {
@@ -649,53 +513,6 @@ Popup.prototype.close = function() {
 
 
 
-/*
-*
-* Slider
-*
-* IMPORTANT: The Slider class requires SwipeDetector() in order to add touch funtionality
-* 
-*
-	*
-	* 	HTML:
-	*
-
-		<div class="shell slider">
-			<div class="slides">
-				<article></article>
-				<article></article>
-				<article></article>
-			</div>
-		</div>
-
-	* 
-	* 	CSS:
-	* 
-
-		.slider {
-			width: ?;
-			height: ?;
-		}
-
-	* 
-	* 	JS:
-	* 
-	* 	[selector], [number of slides in one view], [time to hold on a view]
-	*
-
-		var slider = new Slider('.slider', {
-			holdTime: 5000,
-			animateTime: 250,
-			itemsOnSlide: 1,
-			handles: true,
-			handlesOutside: false,
-			infinite: false,
-			autostart: true,
-			onBeforeSlide: function() {},
-			onAfterSlide: function() {}
-		});
-*
-*/
 function Slider( selector, options ) {
 
 	if ( typeof selector === 'undefined' || ! $(selector).length )
@@ -986,42 +803,6 @@ Slider.prototype.mobileEvents = function() {
 
 
 
-
-/*
-*
-* Tabber
-*
-*
-	* 
-	* 	HTML:
-	*
-
-		<div class="tabs">
-			<nav>
-				<a href="#!link1">Link 1</a>
-				<a href="#!link2">Link 2</a>
-				<a href="#!link3">Link 3</a>
-			</nav>
-			<div>
-				<article>Tab 1<br>Tab 1<br>Tab 1</article>
-				<article>Tab 2<br>Tab 2</article>
-				<article>Tab 3<br>Tab 3<br>Tab 3<br>Tab 3</article>
-			</div>
-		</div>
-
-	* 
-	* 	JS:
-	* 
-
-		var tb = new Tabber('.tabs', {
-			changeTime: 300,
-			showTime: 500,
-			hashNavigation: true,
-			onBeforeChange: function() {},
-			onChange: function() {}
-		});
-*
-*/
 function Tabber( selector, options ) {
 
 	if ( typeof selector === 'undefined' || ! $(selector).length )
@@ -1122,84 +903,6 @@ Tabber.prototype.menuEvents = function() {
 
 
 
-
-
-/*
-*
-* AjaxContactForm
-*
-*
-	* 
-	* 	HTML:
-	*
-		
-		<div class="cf-message cf-success">Your message was sent successfully!</div>
-		<div class="cf-message cf-error">Please fill all fields and use a valid email!</div>
-		<form method="post" class="contact-form">
-			<input type="text" name="name" placeholder="Name">
-			<input type="text" name="email" placeholder="Email">
-			<textarea name="message" placeholder="Message"></textarea>
-			<input type="submit" value="Send">
-		</form>
-		
-	* 
-	* 	JS:
-	* 
-
-		var acf = new AjaxContactForm('.contact-form', {
-			ajaxUrl : '/ajax/contact-form',
-			errorSelector : '.cf-error',
-			successSelector : '.cf-success',
-			msgFadeTime : 200,
-			formFadeTime : 1000,
-			onSuccess : function(response) {},
-			onFailure : function(response) {},
-			onResponse : function(response) {}
-		});
-		
-	* 
-	* 	PHP:
-	* 
-
-		// Config
-		$to = 'development@dtailstudio.com';
-		$subject = 'Contact form';
-		$values = array(
-			'name' 		=> trim(@$_POST['name']), 			// mandatory
-			'email' 	=> trim(@$_POST['email']), 			// mandatory
-			'website' 	=> trim(@$_POST['website']),
-			'message' 	=> nl2br(trim(@$_POST['message'])), 	// mandatory
-		);
-		// End of Config
-
-		$errors = $content = array();
-
-		foreach ( $values as $key => $value ) {
-			if ( ! strlen($value) )
-				$errors[] = $key . ' is empty';
-		}
-
-		if ( ! preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $values['email']) )
-			$errors[] = 'email is invalid';
-
-		if ( count($errors) ) {
-			echo json_encode(array('status'=>'failure','errors'=>$errors));
-			exit;
-		}
-
-		foreach ( $values as $key => $value )
-			$content[] = '<strong>'.$key.'</strong>: ' . $value;
-
-		$content[] = '<br><em><small>This email is sent from a contact form.</small></em>';
-
-		$headers = array('MIME-Version: 1.0', 'Content-type: text/html; charset=utf-8', 'From: ' . $values['name'] . ' <' . $values['email'] . '>');
-
-		mail($to, $subject, implode("<br>", $content), implode("\r\n", $headers) . "\r\n");
-
-		echo json_encode(array('status'=>'success'));
-		exit;
-*
-*/
 function AjaxContactForm( selector, options ) {
 
 	if ( typeof selector === 'undefined' || ! $(selector).length )
@@ -1313,28 +1016,6 @@ AjaxContactForm.prototype.successShow = function() {
 
 
 
-
-/*
-*
-* HashNavigator
-* 
-*
-	* 
-	* 	JS:
-	* 
-
-	var hash = new HashNavigator({
-		scrollSpeed: 2000,
-		onBeforeScroll: function(e) {
-			console.log(e);
-		},
-		onScrollComplete: function(e) {
-			console.log(e);
-		}
-	});
-	hash.autoScrollToHash();
-*
-*/
 function HashNavigator( options ) {
 
 	this.hash = '';
